@@ -5,66 +5,66 @@ const PRODUCTS = [
   {
     id: 1,
     name: "Mix Pollo",
-    desc: "Pack x5 unidades",
+    desc: "Pechuga jugosa con vegetales frescos",
     price: 16900,
     emoji: "🍗",
-    gradient: "linear-gradient(145deg, #92400e, #d97706)",
+    gradient: "linear-gradient(145deg, #1a1200, #2e1e00)",
   },
   {
     id: 2,
     name: "Mix Ternera",
-    desc: "Pack x5 unidades",
+    desc: "Cuadril tierno con morrones y cebolla",
     price: 25900,
     emoji: "🥩",
-    gradient: "linear-gradient(145deg, #7f1d1d, #b91c1c)",
+    gradient: "linear-gradient(145deg, #1a0800, #2a1000)",
   },
   {
     id: 3,
-    name: "Mixtas Ternera/Pollo",
-    desc: "Pack x5 unidades",
+    name: "Mixtas",
+    desc: "Lo mejor del pollo y la ternera juntos",
     price: 22700,
     emoji: "🍢",
-    gradient: "linear-gradient(145deg, #6b2111, #a3390a)",
+    gradient: "linear-gradient(145deg, #150a00, #221400)",
   },
   {
     id: 4,
     name: "Mix Bondiola",
-    desc: "Pack x5 unidades",
+    desc: "Cerdo jugoso con vegetales de estación",
     price: 18900,
     emoji: "🐷",
-    gradient: "linear-gradient(145deg, #6b1a3a, #be185d)",
+    gradient: "linear-gradient(145deg, #1a0a00, #281200)",
   },
   {
     id: 5,
     name: "Mix Lomo",
-    desc: "Pack x5 unidades",
+    desc: "El corte premium de La Brocheta",
     price: 39000,
     emoji: "🥩",
-    gradient: "linear-gradient(145deg, #1c1917, #57534e)",
+    gradient: "linear-gradient(145deg, #0f0f0f, #1c1c1c)",
   },
   {
     id: 6,
     name: "Mix Veggie",
-    desc: "Pack x5 unidades",
+    desc: "Zucchini, tomate cherry y más",
     price: 9800,
     emoji: "🥦",
-    gradient: "linear-gradient(145deg, #14532d, #16a34a)",
+    gradient: "linear-gradient(145deg, #001a05, #002a08)",
   },
   {
     id: 7,
     name: "Papines",
-    desc: "Pack x5 unidades",
+    desc: "Papines parrilleros crujientes",
     price: 9500,
     emoji: "🥔",
-    gradient: "linear-gradient(145deg, #713f12, #ca8a04)",
+    gradient: "linear-gradient(145deg, #1a1000, #2a1a00)",
   },
   {
     id: 8,
-    name: "Al Pincho Queijo Coalho",
-    desc: "Pack x5 unidades",
+    name: "Al Pincho Queijo",
+    desc: "Queso coalho brasilero a la brasa",
     price: 8900,
     emoji: "🧀",
-    gradient: "linear-gradient(145deg, #854d0e, #eab308)",
+    gradient: "linear-gradient(145deg, #1a1200, #2a1e00)",
   },
 ];
 
@@ -125,7 +125,7 @@ function renderProducts() {
     const qty = cart[p.id] || 0;
     const actionsHTML =
       qty === 0
-        ? `<button class="add-btn" data-action="add" data-id="${p.id}">+ Agregar</button>`
+        ? `<button class="add-btn" data-action="add" data-id="${p.id}">AGREGAR</button>`
         : `<div class="qty-controls">
              <button class="qty-btn qty-minus" data-action="decrease" data-id="${p.id}" aria-label="Restar">−</button>
              <span class="qty-value">${qty}</span>
@@ -134,8 +134,9 @@ function renderProducts() {
 
     return `
       <article class="product-card">
-        <div class="product-img" style="background:${p.gradient}">
-          ${p.emoji}
+        <div class="product-img">
+          <span class="product-img-emoji">${p.emoji}</span>
+          <span class="product-img-label">${p.name}</span>
         </div>
         <div class="product-info">
           <span class="product-name">${p.name}</span>
@@ -273,7 +274,7 @@ function updateCardActions(id) {
 
   actionsEl.innerHTML =
     qty === 0
-      ? `<button class="add-btn" data-action="add" data-id="${id}">+ Agregar</button>`
+      ? `<button class="add-btn" data-action="add" data-id="${id}">AGREGAR</button>`
       : `<div class="qty-controls">
            <button class="qty-btn qty-minus" data-action="decrease" data-id="${id}" aria-label="Restar">−</button>
            <span class="qty-value">${qty}</span>
